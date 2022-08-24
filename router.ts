@@ -1,6 +1,10 @@
+import debug from "debug";
 import { Router } from "express";
 import { authRouter } from "./auth";
 import GoogleAPI from "./gdrive_api";
+
+const ALLOWED_CATEGORIES = [1,2,3];
+const dbg = debug("insight:router");
 
 const router = Router();
 router.use(authRouter);
@@ -22,6 +26,13 @@ router.patch("/api/submission", async (req, res) => {
     const discordId = req.session.discordId as string;
     const name = req.session.tag;
     const shortenedSubmission = req.body.submission;
+
+    if (!ALLOWED_CATEGORIES.includes(shortenedSubmission.category)) {
+        dbg("Tried to patch an invalid category! %d", shortenedSubmission.category);
+        res.sendStatus(400);
+        return;
+    }
+
     shortenedSubmission.discordId = discordId;
     shortenedSubmission.name = name;
 
