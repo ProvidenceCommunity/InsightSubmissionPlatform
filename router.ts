@@ -1,11 +1,13 @@
 import { Router } from "express";
+import { authRouter } from "./auth";
 import GoogleAPI from "./gdrive_api";
 
 const router = Router();
+router.use(authRouter);
 export default router;
 
 router.get("/api/submission", async (req, res) => {
-    const discordId = req.headers['authorization'] as string;
+    const discordId = req.session.discordId as string;
     const category = parseInt(req.query['category'] as string);
 
     const submission = await GoogleAPI.getInstance().getSubmission(discordId, category);
@@ -17,8 +19,8 @@ router.get("/api/submission", async (req, res) => {
 });
 
 router.patch("/api/submission", async (req, res) => {
-    const discordId = req.headers['authorization'] as string;
-    const name = "Testing name";
+    const discordId = req.session.discordId as string;
+    const name = req.session.tag;
     const shortenedSubmission = req.body.submission;
     shortenedSubmission.discordId = discordId;
     shortenedSubmission.name = name;

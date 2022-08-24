@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+        <title>Hitman Triathlon - Submissions</title>
+    </head>
+    <body>
+        <div id="app">
+            <v-app style="background-image: url('/assets/background.png')">
+                <v-main>
+                    <v-container>
+                        <v-row>
+                            <v-spacer></v-spacer>
+                            <v-col>
+                                <v-img src="/assets/logo.png" max-width="350"></v-img>
+                            </v-col>
+                            <v-spacer></v-spacer>
+                        </v-row>
+                        <v-row>
+                            <v-spacer></v-spacer>
+                            <v-col>
+                                <v-card>
+                                    <v-card-title>Login</v-card-title>
+                                    <v-card-text>
+                                        Please login with discord to submit your videos.<br><br>
+                                        <v-btn color="primary" href="/auth/discord_login"><v-icon>mdi-discord</v-icon> Login with Discord</v-btn>
+                                    </v-card-text>
+                                </v-card>
+                            </v-col>
+                            <v-spacer></v-spacer>
+                        </v-row>
+                    </v-container>
+                </v-main>
+            </v-app>
+        </div>
+
+        <script>
+            new Vue({
+                el: '#app',
+                vuetify: new Vuetify({ theme: { dark: true } }),
+            })
+        </script>
+    </body>
+</html>
