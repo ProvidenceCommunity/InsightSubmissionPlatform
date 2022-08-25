@@ -4,7 +4,7 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
         <title>Hitman Triathlon - Submissions</title>
@@ -24,7 +24,7 @@
                         <v-row>
                             <v-col>
                                 Submit your video's for the Hitman Triathlon here. If you want to submit one video for all categories, submit the same video for all three categories.<br>
-                                Logged in as: {{username}} <a href="/auth/logout">Logout</a><br>
+                                Logged in as: CurryMaker#9568 <a href="/auth/logout">Logout</a><br>
                                 <v-btn color="green" :loading="isSaving" @click="save"><v-icon>mdi-content-save</v-icon>Save submissions</v-btn>
                                 <v-alert type="success" dismissible v-model="savedAlert" class="mt-5">Saved successfully!</v-alert>
                             </v-col>
@@ -35,7 +35,7 @@
                                     <v-card-title><v-img src="/assets/circle_1.png" max-width="32" class="mr-5"></v-img>Round 1 - Bingo</v-card-title>
                                     <v-divider></v-divider>
                                     <v-card-text>
-                                        <a href="https://drive.google.com/file/d/1JRVi6-Bi_744863F7TgoHWWWt-Ihf2wl/view" target="_blank">Link to the board.</a><br>
+                                        <a href="https://google.com" target="_blank">Link to the board.</a><br>
                                         Complete two lines, and exit the mission as quickly as possible.
                                     </v-card-text>
                                     <v-text-field label="Link" class="mx-5" v-model="c1.link"></v-text-field>
@@ -46,14 +46,37 @@
                         <v-row>
                             <v-col>
                                 <v-card elevation="5" outlined width="100%">
-                                    <v-card-title><v-img src="/assets/circle_2.png" max-width="32" class="mr-5"></v-img>Round 2 - Contract - Revealed at 28th August, 20:00 CEST</v-card-title>
+                                    <v-card-title><v-img src="/assets/circle_2.png" max-width="32" class="mr-5"></v-img>Round 2 - Contract</v-card-title>
+                                    <v-divider></v-divider>
+                                    <v-card-text>
+                                        Contract ID's:<br>
+                                        Epic: XX-XXXX-XXX-XXX<br>
+                                        XBox: something something, idk the platforms or layout of contract ids<br><br>
+                                        Complete the contract as quickly as possible.
+                                    </v-card-text>
+                                    <v-text-field label="Link" class="mx-5" v-model="c2.link"></v-text-field>
+                                    <v-text-field label="Note" class="mx-5" v-model="c2.notes"></v-text-field>
                                 </v-card>
                             </v-col>
                         </v-row>
                         <v-row>
                             <v-col>
                                 <v-card elevation="5" outlined width="100%">
-                                    <v-card-title><v-img src="/assets/circle_3.png" max-width="32" class="mr-5"></v-img>Round 3 - Roulette Spin - Revealed at 30th August, 20:00 CEST</v-card-title>
+                                    <v-card-title><v-img src="/assets/circle_3.png" max-width="32" class="mr-5"></v-img>Round 3 - Roulette Spin</v-card-title>
+                                    <v-divider></v-divider>
+                                    <v-card-text>
+                                        Spin: Fiber Wire / Suit for Alexa Carlisle<br>
+                                        Complete this Roulette Spin as quickly as possible.
+                                    </v-card-text>
+                                    <v-text-field label="Link" class="mx-5" v-model="c3.link"></v-text-field>
+                                    <v-text-field label="Note" class="mx-5" v-model="c3.notes"></v-text-field>
+                                </v-card>
+                            </v-col>
+                        </v-row>
+                        <v-row>
+                            <v-col>
+                                <v-card elevation="5" outlined width="100%">
+                                    <v-card-title><v-img src="/assets/circle_3.png" max-width="32" class="mr-5"></v-img>Round 3 - Roulette Spin - Revealed at XXth, XX:XX CEST</v-card-title>
                                 </v-card>
                             </v-col>
                         </v-row>
@@ -87,7 +110,7 @@
                             link: "",
                             notes: ""
                         },
-                        allowedCategories: [0],
+                        allowedCategories: [0,1,2],
                         isSaving: false,
                         savedAlert: false,
                     }

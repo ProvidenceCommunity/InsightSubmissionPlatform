@@ -3,7 +3,7 @@ import { Router } from "express";
 import { authRouter } from "./auth";
 import GoogleAPI from "./gdrive_api";
 
-const ALLOWED_CATEGORIES = [1,2,3];
+const ALLOWED_CATEGORIES = [1];
 const dbg = debug("insight:router");
 
 const router = Router();
